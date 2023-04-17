@@ -77,7 +77,11 @@ public class addBook extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 100, 30));
+=======
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 50, 20));
+>>>>>>> 0b8b2f40987181c3cdce18076f7c4aca99d5788b
 
         jLabel2.setText("Book ISBN");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
@@ -137,6 +141,7 @@ public class addBook extends javax.swing.JFrame {
 
         jLabel15.setText("Book description");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+<<<<<<< HEAD
 
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,17 +149,24 @@ public class addBook extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 370, 70));
+=======
+        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 370, 70));
+>>>>>>> 0b8b2f40987181c3cdce18076f7c4aca99d5788b
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("ADD");
+<<<<<<< HEAD
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 100, 30));
+=======
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, 30));
+>>>>>>> 0b8b2f40987181c3cdce18076f7c4aca99d5788b
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 420, 520));
 
