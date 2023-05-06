@@ -1,4 +1,4 @@
-LIBRARY MANAGEMENT SYSTEM
+#LIBRARY MANAGEMENT SYSTEM
 
 This repository have the source code and the documents of library management system it contains the prototypes,
 out application include:
