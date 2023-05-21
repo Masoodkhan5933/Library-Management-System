@@ -15,6 +15,7 @@ public class mainlogin extends javax.swing.JFrame {
      */
     public mainlogin() {
         initComponents();
+           setTitle("Main Login Page");
     }
 
     /**
@@ -117,10 +118,7 @@ public class mainlogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //by click on admin login, move to login page
-    loginpage login=new loginpage();
-      login.show();//display login page here
-     dispose();//close mainlogin after opening loginpage
+        //by click on admin login, move to login page   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
