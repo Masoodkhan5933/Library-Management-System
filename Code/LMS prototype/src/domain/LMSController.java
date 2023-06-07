@@ -10,5 +10,13 @@ package domain;
  * @author fa21-bse-028
  */
 public class LMSController {
+    public void RegisterAccount(String username,String password,String email){
+    
+        
+    }
+    
+    
+    
+    
     
 }
