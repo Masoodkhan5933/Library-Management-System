@@ -8,13 +8,38 @@ package lms.prototype;
  *
  * @author CUI
  */
-public class managerfunctionalitypage extends javax.swing.JFrame {
+public class mainloginpage extends javax.swing.JFrame {
 
     /**
-     * Creates new form managerfunctionalitypage
+     * Creates new form mainloginpage
      */
-    public managerfunctionalitypage() {
+    public mainloginpage() {
         initComponents();
+        librarianbutton.addActionListener(e -> {
+            loginpage loginPage = new loginpage();
+            loginPage.setVisible(true);
+            loginPage.pack();
+       loginPage.setLocationRelativeTo(null);
+      loginPage.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+          managerbutton.addActionListener(e -> {
+            loginpage loginPage = new loginpage();
+            loginPage.setVisible(true);
+             loginPage.pack();
+       loginPage.setLocationRelativeTo(null);
+      loginPage.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+           userbutton.addActionListener(e -> {
+            loginpage loginPage = new loginpage();
+            loginPage.setVisible(true);
+             loginPage.pack();
+       loginPage.setLocationRelativeTo(null);
+      loginPage.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+       
     }
 
     /**
@@ -29,18 +54,18 @@ public class managerfunctionalitypage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        librarianbutton = new javax.swing.JButton();
+        userbutton = new javax.swing.JButton();
+        managerbutton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(123, 201, 193));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("MANAGER SECTION");
+        jLabel1.setText("MAIN LOGIN");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,21 +90,27 @@ public class managerfunctionalitypage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 60));
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(152, 255, 255));
 
-        jLabel2.setBackground(new java.awt.Color(123, 201, 193));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("MANAGE ACCOUNTS");
+        librarianbutton.setBackground(new java.awt.Color(123, 201, 193));
+        librarianbutton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        librarianbutton.setForeground(new java.awt.Color(255, 255, 255));
+        librarianbutton.setText("Librarian Login");
+        librarianbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                librarianbuttonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(123, 201, 193));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Delete Account");
+        userbutton.setBackground(new java.awt.Color(123, 201, 193));
+        userbutton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        userbutton.setForeground(new java.awt.Color(255, 255, 255));
+        userbutton.setText("User Login");
 
-        jButton3.setBackground(new java.awt.Color(123, 201, 193));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Block Account");
+        managerbutton.setBackground(new java.awt.Color(123, 201, 193));
+        managerbutton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        managerbutton.setForeground(new java.awt.Color(255, 255, 255));
+        managerbutton.setText("Manager Login");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -88,25 +119,25 @@ public class managerfunctionalitypage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
+                        .addGap(133, 133, 133)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(111, Short.MAX_VALUE))
+                            .addComponent(managerbutton)
+                            .addComponent(librarianbutton)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(146, 146, 146)
+                        .addComponent(userbutton)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
                 .addGap(38, 38, 38)
-                .addComponent(jButton2)
-                .addGap(30, 30, 30)
-                .addComponent(jButton3)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(librarianbutton)
+                .addGap(47, 47, 47)
+                .addComponent(managerbutton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(userbutton)
+                .addGap(30, 30, 30))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 240));
@@ -114,6 +145,11 @@ public class managerfunctionalitypage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void librarianbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_librarianbuttonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_librarianbuttonActionPerformed
+  
+    
     /**
      * @param args the command line arguments
      */
@@ -131,30 +167,30 @@ public class managerfunctionalitypage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(managerfunctionalitypage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainloginpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(managerfunctionalitypage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainloginpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(managerfunctionalitypage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainloginpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(managerfunctionalitypage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mainloginpage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new managerfunctionalitypage().setVisible(true);
+                new mainloginpage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton librarianbutton;
+    private javax.swing.JButton managerbutton;
+    private javax.swing.JButton userbutton;
     // End of variables declaration//GEN-END:variables
 }

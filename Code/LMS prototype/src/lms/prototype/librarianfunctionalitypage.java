@@ -15,6 +15,39 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
      */
     public librarianfunctionalitypage() {
         initComponents();
+       addbook.addActionListener(e -> {
+           addBook add = new addBook();
+            add.setVisible(true);
+            add.pack();
+      add.setLocationRelativeTo(null);
+      add.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+        deletebook.addActionListener(e -> {
+          deletebook delete = new deletebook();
+            delete.setVisible(true);
+            delete.pack();
+      delete.setLocationRelativeTo(null);
+      delete.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+        finebutton.addActionListener(e -> {
+          fine fine = new fine();
+            fine.setVisible(true);
+            fine.pack();
+      fine.setLocationRelativeTo(null);
+      fine.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+          logout.addActionListener(e -> {
+         mainloginpage main = new mainloginpage();
+           main.setVisible(true);
+            main.pack();
+      main.setLocationRelativeTo(null);
+      main.setDefaultCloseOperation(Registrationform.EXIT_ON_CLOSE);
+      this.dispose();
+        });
+        
     }
 
     /**
@@ -29,13 +62,13 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        addbook = new javax.swing.JButton();
+        deletebook = new javax.swing.JButton();
+        orderbook = new javax.swing.JButton();
+        finebutton = new javax.swing.JButton();
+        checkdetailsbook = new javax.swing.JButton();
+        allbookspage = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,78 +104,92 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(123, 201, 193));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add book");
+        addbook.setBackground(new java.awt.Color(123, 201, 193));
+        addbook.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        addbook.setForeground(new java.awt.Color(255, 255, 255));
+        addbook.setText("Add book");
 
-        jButton2.setBackground(new java.awt.Color(123, 201, 193));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Delete book");
+        deletebook.setBackground(new java.awt.Color(123, 201, 193));
+        deletebook.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deletebook.setForeground(new java.awt.Color(255, 255, 255));
+        deletebook.setText("Delete book");
 
-        jButton3.setBackground(new java.awt.Color(123, 201, 193));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Order book");
+        orderbook.setBackground(new java.awt.Color(123, 201, 193));
+        orderbook.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        orderbook.setForeground(new java.awt.Color(255, 255, 255));
+        orderbook.setText("Order book");
 
-        jButton4.setBackground(new java.awt.Color(123, 201, 193));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Generate fine");
+        finebutton.setBackground(new java.awt.Color(123, 201, 193));
+        finebutton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        finebutton.setForeground(new java.awt.Color(255, 255, 255));
+        finebutton.setText("Generate fine");
 
-        jButton5.setBackground(new java.awt.Color(123, 201, 193));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Check details");
+        checkdetailsbook.setBackground(new java.awt.Color(123, 201, 193));
+        checkdetailsbook.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkdetailsbook.setForeground(new java.awt.Color(255, 255, 255));
+        checkdetailsbook.setText("Check details");
 
-        jButton6.setBackground(new java.awt.Color(123, 201, 193));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Show all books");
+        allbookspage.setBackground(new java.awt.Color(123, 201, 193));
+        allbookspage.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        allbookspage.setForeground(new java.awt.Color(255, 255, 255));
+        allbookspage.setText("Show all books");
 
-        jButton7.setBackground(new java.awt.Color(123, 201, 193));
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Logout");
+        logout.setBackground(new java.awt.Color(123, 201, 193));
+        logout.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        logout.setForeground(new java.awt.Color(255, 255, 255));
+        logout.setText("Logout");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addContainerGap(124, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(allbookspage)
+                        .addContainerGap(129, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(deletebook, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(orderbook, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkdetailsbook, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(finebutton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(logout)
+                        .addGap(157, 157, 157))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(addbook, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(133, 133, 133))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26)
-                .addComponent(jButton2)
-                .addGap(30, 30, 30)
-                .addComponent(jButton4)
-                .addGap(32, 32, 32)
-                .addComponent(jButton3)
-                .addGap(30, 30, 30)
-                .addComponent(jButton5)
-                .addGap(29, 29, 29)
-                .addComponent(jButton6)
-                .addGap(31, 31, 31)
-                .addComponent(jButton7)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(addbook)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deletebook)
+                    .addComponent(finebutton))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orderbook)
+                    .addComponent(checkdetailsbook))
+                .addGap(18, 18, 18)
+                .addComponent(allbookspage)
+                .addGap(18, 18, 18)
+                .addComponent(logout)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 420));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 400, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,15 +230,15 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton addbook;
+    private javax.swing.JButton allbookspage;
+    private javax.swing.JButton checkdetailsbook;
+    private javax.swing.JButton deletebook;
+    private javax.swing.JButton finebutton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton orderbook;
     // End of variables declaration//GEN-END:variables
 }
