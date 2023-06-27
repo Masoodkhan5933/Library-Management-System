@@ -42,7 +42,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -68,7 +68,7 @@
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -83,7 +83,7 @@
                                   </Group>
                               </Group>
                           </Group>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -149,7 +149,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -165,7 +165,7 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -187,7 +187,7 @@
                           <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -241,7 +241,7 @@
                       <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -259,7 +259,7 @@
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="7" max="32767" attributes="0"/>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
               </Group>
           </Group>
         </DimensionLayout>
@@ -308,7 +308,7 @@
             <Property name="text" type="java.lang.String" value="Category"/>
           </Properties>
         </Component>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
 =======
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
@@ -329,7 +329,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
         <Component class="javax.swing.JComboBox" name="jComboBox2">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -348,7 +348,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/addBook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/addBook.form
 =======
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
@@ -371,7 +371,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField9">
         </Component>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/addBook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/addBook.form
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

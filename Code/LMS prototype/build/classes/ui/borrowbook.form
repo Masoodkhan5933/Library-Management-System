@@ -95,7 +95,7 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/borrowbook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/borrowbook.form
                           <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -157,7 +157,7 @@
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/borrowbook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/borrowbook.form
                       </Group>
                   </Group>
                   <EmptySpace pref="78" max="32767" attributes="0"/>
@@ -169,7 +169,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/borrowbook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/borrowbook.form
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
 =======
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/borrowbook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/borrowbook.form
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -286,7 +286,7 @@
             <Property name="text" type="java.lang.String" value="BACK"/>
           </Properties>
         </Component>
-<<<<<<< HEAD:Code/LMS prototype/build/classes/ui/borrowbook.form
+<<<<<<< HEAD:Code/LMS prototype/src/ui/borrowbook.form
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Book ISBN"/>
@@ -309,7 +309,7 @@
         <Component class="javax.swing.JTextField" name="jTextField3">
         </Component>
 =======
->>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/build/classes/Books/borrowbook.form
+>>>>>>> 386ed33fe93a53b00674ea3b4e80bb493b4aa302:Code/LMS prototype/src/books/borrowbook.form
       </SubComponents>
     </Container>
   </SubComponents>
