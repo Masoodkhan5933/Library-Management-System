@@ -2,6 +2,24 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/RecordsMapper.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/dto/BookDTO.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/validators/PaymentValidator.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/RecordsModifier.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/dto/Response.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/dto/PaymentDTO.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/validators/CommonValidator.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/ui/addBook.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/LMSController.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/dto/MessageType.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/SMSFactory.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/RecordsAdder.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/model/dto/Message.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/DALManager.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/SQLConnection.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/IConnection.java</file>
+            <file>file:/C:/Users/CUI/Desktop/4th%20SEMESTER/OOSE/Library-Management-System/Code/LMS%20prototype/src/dal/DBReader.java</file>
+        </group>
     </open-files>
 </project-private>
