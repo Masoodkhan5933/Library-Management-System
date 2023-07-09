@@ -21,7 +21,6 @@ public enum MessageType {
     WARNING("Warning"),
     ERROR("Error"),
     EXCEPTION("Exception");
-   
 
     private final String displayName;
 

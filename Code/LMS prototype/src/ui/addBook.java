@@ -6,6 +6,7 @@
 package ui;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.LMSController;
 import model.dto.BookDTO;
 
@@ -70,6 +71,12 @@ public class addBook extends javax.swing.JFrame {
             }
         });
 
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+
         jLabel9.setText("Category");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Software Engineering", "Computer Science", "Fiction", "Noval", "Poetry", "Civil Engineering", " " }));
@@ -106,9 +113,9 @@ public class addBook extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(jLabel3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
+                                .addGap(50, 50, 50)
                                 .addComponent(jLabel7)))
-                        .addGap(2, 2, 2)
+                        .addGap(1, 1, 1)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(96, 96, 96)
@@ -125,9 +132,8 @@ public class addBook extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jComboBox2, 0, 154, Short.MAX_VALUE))
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                    .addComponent(jTextField1))
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,16 +141,20 @@ public class addBook extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jButton1)
-                        .addGap(58, 58, 58)
-                        .addComponent(jButton2)))
+                .addGap(108, 108, 108)
+                .addComponent(jButton1)
+                .addGap(60, 60, 60)
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(119, 119, 119))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,16 +179,16 @@ public class addBook extends javax.swing.JFrame {
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 420, 380));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 420, 300));
 
         jPanel3.setBackground(new java.awt.Color(123, 201, 193));
 
@@ -220,49 +230,30 @@ public class addBook extends javax.swing.JFrame {
         // TODO add your handling code here:
 //        code tpo load data into table
 //validation for not leaving blank data
-
-
-
-    if(jTextField1.getText().equals("")||jTextField2.getText().equals("")||
-//       jComboBox1.getSelectedItem().equals("")||jTextField4.getText().equals("")||
-//       jTextField5.getText().equals("")||jTextField6.getText().equals("")||
-          jComboBox2.getSelectedItem().equals("")){
-        JOptionPane.showMessageDialog(this,"Enter all data!");
-    }
-    else{
-       String[] data = {
-    jTextField1.getText(),
-    jTextField2.getText(),
-//    jComboBox1.getSelectedItem().toString(),
-    jTextField4.getText(),
-    jTextField5.getText(),
-//    jTextField6.getText(),
-    jComboBox2.getSelectedItem().toString()
-};
-       
-        JOptionPane.showMessageDialog(this,"Data successfully entered");
-        jTextField1.setText("");
-          jTextField2.setText("");
-//        jComboBox1.setSelectedIndex(-1);
-            jTextField4.setText("");
-              jTextField5.setText("");
-            jComboBox2.setSelectedIndex(-1);      
-    }
+      LMSController controller = new LMSController();
+    BookDTO objbook=new BookDTO();
+    objbook.ISBN=jTextField1.getText();
+    objbook.name=jTextField2.getText();
+    objbook.authorname=jTextField4.getText();
+    objbook.publishername=jTextField5.getText();
+    objbook.category=(String)jComboBox2.getSelectedItem();
+        System.out.println(objbook.category);
+    
+    controller.addBook(objbook);
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//     librarianfunctionalitypage Page = new  librarianfunctionalitypage();
-//    Page.setVisible(true);
-    LMSController controller = new LMSController();
-    BookDTO objbook=new BookDTO();
-    objbook.ISBN=jTextField1.getText();
-    controller.addBook(objbook);
+        this.dispose();
     
     
     
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments
