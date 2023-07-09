@@ -25,7 +25,7 @@ public class SMSFactory {
         return new LMSController();
     }
 
- public static Response getResponseInstance() {
+    static Response getResponseInstance() {
         return new Response();
     }
 
