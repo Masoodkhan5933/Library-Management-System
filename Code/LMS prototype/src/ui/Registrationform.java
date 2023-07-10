@@ -4,6 +4,8 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CUI
@@ -115,6 +117,11 @@ public class Registrationform extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("REGISTER");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -215,6 +222,26 @@ public class Registrationform extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        // Check if all fields are filled
+    String firstName = jTextField1.getText().trim();
+    String lastName = jTextField2.getText().trim();
+    String phoneNo = jTextField3.getText().trim();
+    String email = jTextField4.getText().trim();
+    String address = jTextField5.getText().trim();
+    
+    if (firstName.isEmpty() || lastName.isEmpty() || phoneNo.isEmpty() || email.isEmpty() || address.isEmpty()) {
+        // Display an error message indicating that all fields should be filled
+        JOptionPane.showMessageDialog(this, "Please fill in all the fields.");
+    } else {
+        // All fields are filled, navigate to the login page
+        loginpage loginpage = new loginpage();
+        loginpage.setVisible(true);
+        this.dispose();
+    }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
