@@ -5,10 +5,6 @@
  */
 package model.dto;
 
-/**
- *
- * @author Mukhtiar
- */
 public class BookDTO {
 
     public String ISBN;

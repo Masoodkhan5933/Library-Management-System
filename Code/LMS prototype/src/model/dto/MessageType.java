@@ -20,7 +20,9 @@ public enum MessageType {
     NOTIFICATION("Notification"),
     WARNING("Warning"),
     ERROR("Error"),
-    EXCEPTION("Exception");
+    EXCEPTION("Exception"),
+     INFO("INFO");
+   
 
     private final String displayName;
 

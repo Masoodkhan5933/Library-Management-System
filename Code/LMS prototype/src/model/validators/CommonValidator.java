@@ -9,10 +9,6 @@ import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
 
-/**
- *
- * @author Mukhtiar-HPC
- */
 public class CommonValidator {
 
     public static void validateBook(BookDTO objBook, Response objResponse) {

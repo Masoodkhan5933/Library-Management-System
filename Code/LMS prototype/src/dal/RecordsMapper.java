@@ -9,10 +9,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.dto.BookDTO;
 
-/**
- *
- * @author Mukhtiar
- */
 public class RecordsMapper {
 
  

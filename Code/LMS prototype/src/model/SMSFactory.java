@@ -21,11 +21,11 @@ public class SMSFactory {
         return new DALManager(new RecordsMapper());
     }
 
-    public static LMSController getInstanceOfSMSController() {
+    public static LMSController getInstanceOfLMSController() {
         return new LMSController();
     }
 
-    static Response getResponseInstance() {
+ public static Response getResponseInstance() {
         return new Response();
     }
 

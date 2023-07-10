@@ -1,33 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model.dto;
 
 import java.util.ArrayList;
+import java.util.List;
 
-/**
- *
- * @author Mukhtiar-HPC
- */
+
 public class Response {
-    public ArrayList<Message> messagesList;
-    public Response(){ 
-        messagesList = new ArrayList<>();
+    public List<Message> messagesList;
+    private boolean success;
+
+
+    public Response() {
+        this.messagesList = new ArrayList<>();
+         this.success = true;
     }
 
-    public boolean hasError() {
-        for(Message m : messagesList)
-        {
-            if(m.Type == MessageType.ERROR || m.Type == MessageType.EXCEPTION)
-                return true;
-        }
-        return false;
-}
-
-    public String getErrorMessages() {
-        StringBuilder sb = new StringBuilder();    
-        for(Message m : messagesList)
+   public boolean hasError() {
+      for(Message m : messagesList)
+      {
+         if(m.Type == MessageType.ERROR || m.Type == MessageType.EXCEPTION)
+             return true;
+     }
+    return false;
+   }
+//
+ public String getErrorMessages() {
+     StringBuilder sb = new StringBuilder();    
+     for(Message m : messagesList)
         {
            if(sb.length() > 0) 
                sb.append(",\n");
@@ -37,7 +36,20 @@ public class Response {
         return sb.toString();
     }
 
-    public boolean isSuccessfull() {
+    public boolean isSuccessful() {
         return !hasError();
     }
+
+   public List<Message> getMessagesList() {
+        return messagesList;
+    }
+
+    public void setMessagesList(List<Message> messagesList) {
+        this.messagesList = messagesList;
+    }
+    
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+    
 }
