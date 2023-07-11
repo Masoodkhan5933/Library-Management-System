@@ -269,26 +269,27 @@ public void reserveBook(String bookISBN, String userId, Response objResponse, Co
     }
 }
 
-public void blockAccount(String username, Response objResponse, Connection dbConnection) {
+public void blockAccount(String email, Response objResponse, Connection dbConnection) {
     try {
         System.out.println("I am blockAccount method in RecordsModifier");
         // Check if the user exists
-        PreparedStatement checkUser = dbConnection.prepareStatement("SELECT * FROM Users WHERE username = ?;");
-        checkUser.setString(1, username);
+        PreparedStatement checkUser = dbConnection.prepareStatement("SELECT * FROM Users WHERE email = ?;");
+        checkUser.setString(1, email);
         ResultSet userResultSet = checkUser.executeQuery();
         if (userResultSet.next()) {
             // Perform the account blocking logic here
             // ...
             
             // Example: Update the user's account status to blocked
-            PreparedStatement blockUser = dbConnection.prepareStatement("UPDATE Users SET status = 'Blocked' WHERE username = ?;");
-            blockUser.setString(1, username);
+            System.out.println("i am updater");
+            PreparedStatement blockUser = dbConnection.prepareStatement("UPDATE Users SET status = 'blocked' WHERE email = ?;");
+            blockUser.setString(1, email);
             int rowsUpdated = blockUser.executeUpdate();
             if (rowsUpdated > 0) {
                 objResponse.messagesList.add(new Message("Account blocked successfully.", MessageType.NOTIFICATION));
             }
         } else {
-            objResponse.messagesList.add(new Message("User with username " + username + " does not exist.", MessageType.WARNING));
+            objResponse.messagesList.add(new Message("User with username " + email + " does not exist.", MessageType.WARNING));
         }
     } catch (SQLException e) {
         objResponse.messagesList.add(new Message("Oops! Failed to block the account. Please contact support for assistance.", MessageType.ERROR));

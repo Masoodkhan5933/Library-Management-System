@@ -206,11 +206,15 @@ public class RecordsAdder {
    public void registerAccount(UserDTO objUser, Response objResponse,Connection dbConnection) {
     try {
 //        Connection dbConnection = objConnection.getConnection();
-       System.out.println("i am regisyer account method in record adder");  
+       System.out.println("i am register account method in record adder");  
 
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Users (username, password) VALUES (?, ?);");
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Users (username, email , password ,gender, status) VALUES (?, ?, ?, ?, ?);");
         p.setString(1, objUser.getUsername());
-        p.setString(2, objUser.getPassword());
+        p.setString(2, objUser.getEmail());
+        p.setString(3, objUser.getPassword());
+        p.setString(4, objUser.getGender());
+        p.setString(5, objUser.getStatus());
+        
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
             objResponse.messagesList.add(new Message("Account registered successfully.", MessageType.NOTIFICATION));
@@ -226,9 +230,12 @@ public class RecordsAdder {
    public void addFeedback(FeedbackDTO feedback, Response objResponse, Connection dbConnection) {
     try {
         System.out.println("I am addFeedback method in RecordsAdder");
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Feedback (username, feedback) VALUES (?, ?);");
-        p.setString(1, feedback.getUsername());
-        p.setString(2, feedback.getFeedback());
+    PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Feedback (kindofcomment, aboutlibrary,comments,email,phoneno) VALUES (?, ?, ?, ?, ?);");
+        p.setString(1, feedback.getKind());
+        p.setString(2, feedback.getAbout());
+        p.setString(3, feedback.getComments());
+        p.setString(4, feedback.getEmail());
+        p.setString(5, feedback.getPhoneNumber());
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
             objResponse.getMessagesList().add(new Message("Feedback added successfully.", MessageType.NOTIFICATION));

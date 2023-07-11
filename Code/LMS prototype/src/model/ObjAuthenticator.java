@@ -17,9 +17,6 @@ import model.dto.Response;
  * @author Waleed Qazi
  */
 public class ObjAuthenticator {
-    static void authenticateUser(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     static void logout(Response objResponse) {
          try {
@@ -38,10 +35,9 @@ public class ObjAuthenticator {
     
     public Response login(String username, String password) {
         Response objResponse = new Response();
-        
         try {
             // Create a prepared statement to check the validity of username and password
-            String query = "SELECT COUNT(*) FROM users WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM Users WHERE email = ? AND password = ?";
             PreparedStatement statement = dbConnection.prepareStatement(query);
             statement.setString(1, username);
             statement.setString(2, password);
@@ -49,14 +45,18 @@ public class ObjAuthenticator {
             // Execute the query
             ResultSet resultSet = statement.executeQuery();
             
+            System.out.println("");
             // Check if the query returned a result
-            if (resultSet.next() && resultSet.getInt(1) > 0) {
-                // Login successful
-                objResponse.messagesList.add(new Message("Login successful!", MessageType.SUCCESS));
-            } else {
-                // Invalid credentials
-                objResponse.messagesList.add(new Message("Invalid username or password.", MessageType.ERROR));
-            }
+            
+//            if (resultSet.next() && resultSet.getInt(1) > 0) {
+//                // Login successful
+//                
+//                objResponse.messagesList.add(new Message("Login successful!", MessageType.SUCCESS));
+//            } else {
+//                // Invalid credentials
+//                System.out.println("LOGGED IN");
+//                objResponse.messagesList.add(new Message("Invalid username or password.", MessageType.ERROR));
+//            }
             
             // Close the result set and statement
             resultSet.close();

@@ -1,32 +1,57 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model.dto;
 
 public class FeedbackDTO {
-    private String username;
-    private String feedback;
+    private String kind;
+    private String comments;
+    private String email;
+    private String phoneNumber;
+    private String about;
 
-    public FeedbackDTO(String username, String feedback) {
-        this.username = username;
-        this.feedback = feedback;
+    public FeedbackDTO(String kind, String comments, String email, String phoneNumber, String about) {
+        this.kind = kind;
+        this.comments = comments;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.about = about;
     }
 
-    public String getUsername() {
-        return username;
+    public String getKind() {
+        return kind;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setKind(String kind) {
+        this.kind = kind;
+    }
+    
+    public String getComments() {
+        return comments;
     }
 
-    public String getFeedback() {
-        return feedback;
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+    
+    public String getEmail() {
+        return email;
     }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 }
-

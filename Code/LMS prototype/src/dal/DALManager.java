@@ -17,13 +17,16 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.SMSFactory;
 import model.dto.BookDTO;
+import model.dto.FeedbackDTO;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.PaymentDTO;
 import model.dto.Response;
 import model.dto.UserDTO;
+import ui.librarianfunctionalitypage;
 
 
 /**
@@ -59,14 +62,12 @@ public class DALManager {
     
     //login
 
-public Response login(String username, String password) {
-    Response objResponse = new Response();
-    
+public void login(String username, String password) {
     try {
         Connection dbConnection = objConnection.getConnection();
         
         // Create a prepared statement to check the validity of username and password
-        String query = "SELECT COUNT(*) FROM users WHERE username = ? AND password = ?";
+        String query = "SELECT status FROM users WHERE email = ? AND password = ?";
         PreparedStatement statement = dbConnection.prepareStatement(query);
         statement.setString(1, username);
         statement.setString(2, password);
@@ -75,12 +76,24 @@ public Response login(String username, String password) {
         ResultSet resultSet = statement.executeQuery();
         
         // Check if the query returned a result
-        if (resultSet.next() && resultSet.getInt(1) > 0) {
-            // Login successful
-            objResponse.messagesList.add(new Message("Login successful!", MessageType.SUCCESS));
+        if (resultSet.next()) {
+            String status = resultSet.getString("status");
+            
+            // Check if the user's status is blocked
+            if (status.equals("Blocked")) {
+                // User is blocked, display error dialog box
+                JOptionPane.showMessageDialog(null, "User is blocked. Please contact support for assistance.", "Login Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (username.equals("admin")) {
+                    new librarianfunctionalitypage();
+                }
+                
+                // Display success dialog box
+                JOptionPane.showMessageDialog(null, "Login successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
+            }
         } else {
-            // Invalid credentials
-            objResponse.messagesList.add(new Message("Invalid username or password.", MessageType.ERROR));
+            // Invalid credentials, display error dialog box
+            JOptionPane.showMessageDialog(null, "Invalid username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
         }
         
         // Close the result set, statement, and database connection
@@ -88,13 +101,11 @@ public Response login(String username, String password) {
         statement.close();
         dbConnection.close();
     } catch (Exception e) {
-        // Exception occurred during login
-        objResponse.messagesList.add(new Message("An error occurred during login.", MessageType.ERROR));
-        objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+        // Exception occurred during login, display error dialog box
+        JOptionPane.showMessageDialog(null, "An error occurred during login.\n" + e.getMessage(), "Login Error", JOptionPane.ERROR_MESSAGE);
     }
-    
-    return objResponse;
 }
+
 
 //search
 public void searchBook(String searchQuery, Response objResponse) {
@@ -243,7 +254,7 @@ public Response returnBook(String bookId) {
  public void registerAccount(UserDTO objUser, Response objResponse) {
     try {
         Connection dbConnection = objConnection.getConnection();
-//        objAdder.registerAccount(objUser, objResponse, dbConnection);
+        objAdder.registerAccount(objUser, objResponse, dbConnection);
 
         if (objResponse.isSuccessful()) {
             objResponse.messagesList.add(new Message("Account registered successfully.", MessageType.NOTIFICATION));
@@ -256,19 +267,19 @@ public Response returnBook(String bookId) {
     }
 }
  
- public void saveFeedback(String username, String feedback, Response response) {
-    // Perform the necessary operations to save the feedback
-    // For example, you can write code to insert the feedback into a database or store it in a file
-    
-    // Simulating a successful feedback save
-    boolean savedSuccessfully = true;
-    
-    if (savedSuccessfully) {
-        response.setSuccess(true);
-        response.getMessagesList().add(new Message("Feedback saved successfully.", MessageType.NOTIFICATION));
-    } else {
-        response.setSuccess(false);
-        response.getMessagesList().add(new Message("Failed to save feedback.", MessageType.ERROR));
+ public void saveFeedback(FeedbackDTO feedback, Response response) {
+    try {
+        Connection dbConnection = objConnection.getConnection();
+        objAdder.addFeedback(feedback, response, dbConnection);
+
+        if (response.isSuccessful()) {
+            response.getMessagesList().add(new Message("Feedback registered successfully.", MessageType.NOTIFICATION));
+        } else {
+            response.getMessagesList().add(new Message("Failed to register the feedback. Please contact support for assistance.", MessageType.WARNING));
+        }
+    } catch (Exception e) {
+        response.getMessagesList().add(new Message("Oops! Failed to register the feedback. Please contact support for assistance.", MessageType.ERROR));
+        response.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
     }
 }
  

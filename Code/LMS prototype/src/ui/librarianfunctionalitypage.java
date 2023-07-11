@@ -14,7 +14,9 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
      * Creates new form librarianfunctionalitypage
      */
     public librarianfunctionalitypage() {
+        this.setVisible(true);
         initComponents();
+        
     }
 
     /**

@@ -6,11 +6,17 @@ package model.dto;
 
 public class UserDTO {
     private String username;
+    private String email;
     private String password;
+    private String status;
+    private String gender;
 
-    public UserDTO(String username, String password) {
+    public UserDTO(String Email,String username, String password ,String status,String gender) {
+        this.email=Email;
         this.username = username;
         this.password = password;
+        this.status=status;
+        this.gender=gender;
     }
 
     public String getUsername() {
@@ -27,6 +33,26 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String username) {
+        this.gender = username;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String username) {
+        this.email = username;
     }
 }
 

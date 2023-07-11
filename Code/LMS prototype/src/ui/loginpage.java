@@ -125,38 +125,12 @@ public class loginpage extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//         String username = jTextField1.getText();
-//    String password = new String(jPasswordField1.getPassword());
-
-    // Check if the entered username and password are for the admin
-//    if (username.equals("user") && password.equals("123")) {
-//        // Redirect to the user functionality page
-//        userfunctionalitypage userFunctionalityPage = new   userfunctionalitypage();
-//        userFunctionalityPage.setVisible(true);
-//        this.dispose(); // Close or hide the current window if needed
-//    } 
-//    else if(username.equals("librarian") && password.equals("123")){
-//         librarianfunctionalitypage userFunctionalityPage = new   librarianfunctionalitypage();
-//        userFunctionalityPage.setVisible(true);
-//        this.dispose();
-//    }
-//    
-//     else if(username.equals("manager") && password.equals("123")){
-//        managerfunctionalitypage userFunctionalityPage = new  managerfunctionalitypage();
-//        userFunctionalityPage.setVisible(true);
-//        this.dispose();
-//    }
-//    
-//    else {
-//        // Invalid login credentials, show an error message or perform some other action
-//        JOptionPane.showMessageDialog(this, "Invalid username or password. Please try again.");
-//    }
+        
     String username=jTextField1.getText();
          String password=jPasswordField1.getText();
+         
         LMSController obj=new LMSController();
         obj.login( username, password);
-        System.out.println("i am login");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -28,38 +28,19 @@ public class LMSController {
         return objDAL.getBooksList(searchKey);
     }
 
-    //login
+    //LOGIN FUNCTIONAL _______________________________________________________________________________________________________-
     public Response login(String username, String password) {
     Response objResponse = SMSFactory.getResponseInstance();
     try {
-        ObjAuthenticator.authenticateUser(username, password);
+        objDAL.login(username, password);
     } catch (Exception e) {
         objResponse.messagesList.add(new Message("An error occurred during login.", MessageType.ERROR));
         objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));
     }
     return objResponse;
 }
-    //returnbook
-    public Response returnBook(String bookId) {
-    Response objResponse = SMSFactory.getResponseInstance();
-    try {
-        RecordsModifier recordsModifier = new RecordsModifier();
-        recordsModifier.returnBook( bookId, objResponse);
-    } catch (Exception e) {
-        objResponse.messagesList.add(new Message("An error occurred during book return.", MessageType.ERROR));
-        objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));
-    }
-    return objResponse;
-}
-
-
-    //generatefine
-      public Response generateFine(String searchQuery) {
-        Response objResponse = SMSFactory.getResponseInstance();
-        objDAL.generateFine(searchQuery, objResponse);
-        return objResponse;
-    }
     
+ //ADD BOOK FUNCTIONAL________________________________________________________________________________________________________
     public Response addBook(BookDTO objBook) {
         System.out.println("i am addbook method in LMs Controller");
         Response objResponse = SMSFactory.getResponseInstance();
@@ -72,7 +53,7 @@ public class LMSController {
     
     
     
-    //USE CASE BY SOFIA (DELETE BOOK)
+  //DELETE BOOK FUNCTIONAL________________________________________________________________________________________________________
 
     public Response deleteBook(String isbn) {
         Response objResponse = SMSFactory.getResponseInstance();
@@ -80,6 +61,34 @@ public class LMSController {
         return objResponse;
     }
     
+     //BLOCK ACCOUNT FUNCTIONAL________________________________________________________________________________________________
+    public Response blockAccount(String username) {
+    System.out.println("I am blockAccount method in LMS Controller");
+    Response objResponse = SMSFactory.getResponseInstance();
+    objDAL.blockAccount(username, objResponse);
+    return objResponse;
+}
+    //REGISTER ACCOUNT FUNCTIONAL________________________________________________________________________________________________________
+    public Response registerAccount(UserDTO objuser) {
+            System.out.println("i am register account method in LMs Controller");  
+
+    Response objResponse = SMSFactory.getResponseInstance();
+    objDAL.registerAccount(objuser, objResponse);
+    return objResponse;
+}
+
+ //FEEDBACK FUNCTIONAL___________________________________________________________________________________________
+    public Response giveFeedback(FeedbackDTO feedback) {
+    System.out.println("I am giveFeedback method in LMS Controller");
+    Response objResponse = SMSFactory.getResponseInstance();
+    RecordsAdder recordsAdder = new RecordsAdder();
+    objDAL.saveFeedback(feedback, objResponse);
+    
+    return objResponse;
+}
+    
+
+
     //USE CASE BY SOFIA (BORROW BOOK)
           
      public Response borrowBook(String selectedId, String userId) {
@@ -90,27 +99,6 @@ public class LMSController {
     }
      
      
- public Response registerAccount(String username, String password) {
-            System.out.println("i am register account method in LMs Controller");  
-
-    Response objResponse = SMSFactory.getResponseInstance();
-    UserDTO objUser = new UserDTO(username, password);
-    objDAL.registerAccount(objUser, objResponse);
-    return objResponse;
-}
- 
-public Response giveFeedback(FeedbackDTO feedback) {
-    System.out.println("I am giveFeedback method in LMS Controller");
-    Response objResponse = SMSFactory.getResponseInstance();
-    RecordsAdder recordsAdder = new RecordsAdder();
-////    Connection dbConnection = objDAL.getDBConnection(); // Assuming you have a method to get the database connection in objDAL
-//
-////    recordsAdder.addFeedback(feedback, objResponse, dbConnection);
-//
-
-
-    return objResponse;
-}
 
     public Response makePayment(PaymentDTO payment) {
         System.out.println("I am makePayment method in PaymentController");
@@ -146,13 +134,27 @@ public Response giveFeedback(FeedbackDTO feedback) {
     return objResponse;
 }
 
-    
-    public Response blockAccount(String username) {
-    System.out.println("I am blockAccount method in LMS Controller");
+  
+
+    //returnbook
+    public Response returnBook(String bookId) {
     Response objResponse = SMSFactory.getResponseInstance();
-    objDAL.blockAccount(username, objResponse);
+    try {
+        RecordsModifier recordsModifier = new RecordsModifier();
+        recordsModifier.returnBook( bookId, objResponse);
+    } catch (Exception e) {
+        objResponse.messagesList.add(new Message("An error occurred during book return.", MessageType.ERROR));
+        objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+    }
     return objResponse;
 }
 
+
+    //generatefine
+      public Response generateFine(String searchQuery) {
+        Response objResponse = SMSFactory.getResponseInstance();
+        objDAL.generateFine(searchQuery, objResponse);
+        return objResponse;
+    }
 
 }
