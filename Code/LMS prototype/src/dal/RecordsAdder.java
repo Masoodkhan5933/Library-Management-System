@@ -137,41 +137,38 @@ public class RecordsAdder {
     
 
     void addBook(BookDTO objBook, Response objResponse, Connection dbConnection) {
-        try{
-            System.out.println("i am adder to database");
-            PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN , title , authorname , publishername,category) VALUES (?,?,?,?,?);");
-            p.setString(1, objBook.ISBN);
+        try {
+        System.out.println("I am addBook method in RecordsAdder");
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN, title, authorname, publishername, category) VALUES (?, ?, ?, ?, ?);");
+          p.setString(1, objBook.ISBN);
             p.setString(2, objBook.name);
             p.setString(3, objBook.authorname);
             p.setString(4, objBook.publishername);
             p.setString(5, objBook.category);
-            int rowsInserted = p.executeUpdate();
-            if(rowsInserted > 0){
-                JOptionPane.showMessageDialog(null, "Book added Sucessfully");
-                objResponse.messagesList.add(new Message("Book added successfully.", MessageType.NOTIFICATION));
-            }
-        }catch(SQLException e){
-            objResponse.messagesList.add(new Message("Ooops! Failed to create employee, Please contact support that there an issue while saving new employee.", MessageType.ERROR));
-            objResponse.messagesList.add(new Message(e.getMessage() + "\n Stack Track:\n"+e.getStackTrace(), MessageType.EXCEPTION));
+        int rowsInserted = p.executeUpdate();
+        if (rowsInserted > 0) {
+            JOptionPane.showMessageDialog(null, "Book added successfully", "Book Addition", JOptionPane.INFORMATION_MESSAGE);
         }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ooops! Failed to add book. Please contact support for assistance", "Book Addition Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
+}
     public void deleteBook(String bookISBN, Response objResponse, Connection dbConnection) {
         try {
-            PreparedStatement p = dbConnection.prepareStatement("DELETE FROM Book WHERE ISBN = ?;");
-            p.setString(1, bookISBN);
-            int rowsDeleted = p.executeUpdate();
-            if (rowsDeleted > 0) {
-                JOptionPane.showMessageDialog(null, "Book delete Sucessfully");
-                
-                objResponse.messagesList.add(new Message("Book deleted successfully.", MessageType.NOTIFICATION));
-            } else {
-                objResponse.messagesList.add(new Message("Book with ISBN " + bookISBN + " does not exist.", MessageType.WARNING));
-            }
-        } catch (SQLException e) {
-            objResponse.messagesList.add(new Message("Ooops! Failed to delete book. Please contact support for assistance.", MessageType.ERROR));
-            objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+        PreparedStatement p = dbConnection.prepareStatement("DELETE FROM Book WHERE ISBN = ?;");
+        p.setString(1, bookISBN);
+        int rowsDeleted = p.executeUpdate();
+        if (rowsDeleted > 0) {
+            JOptionPane.showMessageDialog(null, "Book deleted successfully", "Book Deletion", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Book with ISBN " + bookISBN + " does not exist", "Book Deletion Error", JOptionPane.WARNING_MESSAGE);
         }
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Ooops! Failed to delete book. Please contact support for assistance", "Book Deletion Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
+}
     
      public void borrowBook(String bookISBN, String userId, Response objResponse, Connection dbConnection) {
         try {
@@ -205,27 +202,26 @@ public class RecordsAdder {
      
    public void registerAccount(UserDTO objUser, Response objResponse,Connection dbConnection) {
     try {
-//        Connection dbConnection = objConnection.getConnection();
-       System.out.println("i am register account method in record adder");  
-
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Users (username, email , password ,gender, status) VALUES (?, ?, ?, ?, ?);");
+        System.out.println("I am registerAccount method in RecordsAdder");
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Users (username, email, password, gender, status) VALUES (?, ?, ?, ?, ?);");
         p.setString(1, objUser.getUsername());
         p.setString(2, objUser.getEmail());
         p.setString(3, objUser.getPassword());
         p.setString(4, objUser.getGender());
         p.setString(5, objUser.getStatus());
-        
+
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
-            objResponse.messagesList.add(new Message("Account registered successfully.", MessageType.NOTIFICATION));
+            JOptionPane.showMessageDialog(null, "Account registered successfully", "Account Registration", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            objResponse.messagesList.add(new Message("Failed to register the account. Please contact support for assistance.", MessageType.WARNING));
+            JOptionPane.showMessageDialog(null, "Failed to register the account. Please contact support for assistance", "Account Registration Error", JOptionPane.WARNING_MESSAGE);
         }
     } catch (SQLException e) {
-        objResponse.messagesList.add(new Message("Oops! Failed to register the account. Please contact support for assistance.", MessageType.ERROR));
-        objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+        JOptionPane.showMessageDialog(null, "Oops! Failed to register the account. Please contact support for assistance", "Account Registration Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
 }
+
    
    public void addFeedback(FeedbackDTO feedback, Response objResponse, Connection dbConnection) {
     try {

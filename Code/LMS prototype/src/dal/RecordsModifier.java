@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import javax.swing.JOptionPane;
 import model.dto.Message;
 import model.dto.MessageType;
 import model.dto.Response;
@@ -187,21 +188,23 @@ public class RecordsModifier {
 //        }
 //    }
       
- void deleteAccount(String username, Response objResponse, Connection dbConnection) {
+ public void deleteAccount(String username, String email, Connection dbConnection) {
     try {
-        PreparedStatement p = dbConnection.prepareStatement("DELETE FROM Accounts WHERE Username = ?");
+        PreparedStatement p = dbConnection.prepareStatement("DELETE FROM Users WHERE Username = ? AND email = ?");
         p.setString(1, username);
+        p.setString(2, email);
         int rowsDeleted = p.executeUpdate();
         if (rowsDeleted > 0) {
-            objResponse.getMessagesList().add(new Message("Account deleted successfully.", MessageType.NOTIFICATION));
+            JOptionPane.showMessageDialog(null, "Account deleted successfully", "Account Deletion", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            objResponse.getMessagesList().add(new Message("Failed to delete the account. Please contact support for assistance.", MessageType.WARNING));
+            JOptionPane.showMessageDialog(null, "aaFailed to delete the account. Please contact support for assistance", "Account Deletion Error", JOptionPane.WARNING_MESSAGE);
         }
     } catch (SQLException e) {
-        objResponse.getMessagesList().add(new Message("Oops! Failed to delete the account. Please contact support for assistance.", MessageType.ERROR));
-        objResponse.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+        JOptionPane.showMessageDialog(null, "Oops! Failed to delete the account. Please contact support for assistance", "Account Deletion Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
 }
+
 
  public void orderBook(String bookISBN, String userId, Response objResponse, Connection dbConnection) {
     try {

@@ -86,7 +86,14 @@ public class LMSController {
     
     return objResponse;
 }
-    
+   
+    //DELETE ACCOUNT FUNCTIONAL__________________________________________________________________________________________________
+    public Response deleteAccount(String username ,String Email) {
+    System.out.println("I am deleteAccount method in LMS Controller");
+    Response objResponse = SMSFactory.getResponseInstance();
+    objDAL.deleteAccount(username,Email, objResponse);
+    return objResponse;
+}
 
 
     //USE CASE BY SOFIA (BORROW BOOK)
@@ -111,13 +118,7 @@ public class LMSController {
         }
         return objResponse;
     }
-    
-    public Response deleteAccount(String username) {
-    System.out.println("I am deleteAccount method in LMS Controller");
-    Response objResponse = SMSFactory.getResponseInstance();
-    objDAL.deleteAccount(username, objResponse);
-    return objResponse;
-}
+ 
 
 
     public Response orderBook(String bookISBN, String userId) {

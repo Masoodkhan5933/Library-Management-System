@@ -27,6 +27,7 @@ import model.dto.PaymentDTO;
 import model.dto.Response;
 import model.dto.UserDTO;
 import ui.librarianfunctionalitypage;
+import ui.userfunctionalitypage;
 
 
 /**
@@ -86,6 +87,9 @@ public void login(String username, String password) {
             } else {
                 if (username.equals("admin")) {
                     new librarianfunctionalitypage();
+                }
+                else{
+                    new userfunctionalitypage();
                 }
                 
                 // Display success dialog box
@@ -294,10 +298,10 @@ public void savePayment(PaymentDTO payment, Response response) {
     }
 }
 
-    public void deleteAccount(String username, Response objResponse) {
+    public void deleteAccount(String username,String Email, Response objResponse) {
                try {
         Connection dbConnection = objConnection.getConnection();
-        objModifier.deleteAccount(username, objResponse, dbConnection);
+        objModifier.deleteAccount(username,Email, dbConnection);
     } catch (Exception e) {
         objResponse.getMessagesList().add(new Message("Oops! Failed to delete the account. Please contact support for assistance.", MessageType.ERROR));
         objResponse.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
