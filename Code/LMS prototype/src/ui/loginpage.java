@@ -98,7 +98,7 @@ public class loginpage extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 60, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lms/prototype/loginpage.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ui/loginpage.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 0, 550, 300));
 

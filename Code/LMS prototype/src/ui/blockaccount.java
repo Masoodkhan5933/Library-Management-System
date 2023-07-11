@@ -10,9 +10,6 @@ package ui;
  */
 public class blockaccount extends javax.swing.JFrame {
 
-    /**
-     * Creates new form blockaccount
-     */
     public blockaccount() {
         initComponents();
     }
