@@ -4,6 +4,8 @@
  */
 package ui;
 
+import model.LMSController;
+
 /**
  *
  * @author CUI
@@ -187,6 +189,10 @@ public class payement extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+           String searchQuery=jTextField1.getText();
+        LMSController obj=new LMSController();
+        obj.generateFine(searchQuery);
+        System.out.println("i am fine page");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
