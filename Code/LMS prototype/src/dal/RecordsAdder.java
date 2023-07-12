@@ -139,12 +139,14 @@ public class RecordsAdder {
     void addBook(BookDTO objBook, Response objResponse, Connection dbConnection) {
         try {
         System.out.println("I am addBook method in RecordsAdder");
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN, title, authorname, publishername, category) VALUES (?, ?, ?, ?, ?);");
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN, title, authorname, publishername, category ,status) VALUES (?, ?, ?, ?, ?, ?);");
           p.setString(1, objBook.ISBN);
             p.setString(2, objBook.name);
             p.setString(3, objBook.authorname);
             p.setString(4, objBook.publishername);
             p.setString(5, objBook.category);
+            p.setString(6, "available");
+            
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
             JOptionPane.showMessageDialog(null, "Book added successfully", "Book Addition", JOptionPane.INFORMATION_MESSAGE);
@@ -200,33 +202,44 @@ public class RecordsAdder {
         }
     }
      
-   public void registerAccount(UserDTO objUser, Response objResponse,Connection dbConnection) {
+   public void registerAccount(UserDTO objUser, Connection dbConnection) {
     try {
-        System.out.println("I am registerAccount method in RecordsAdder");
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Users (username, email, password, gender, status) VALUES (?, ?, ?, ?, ?);");
-        p.setString(1, objUser.getUsername());
-        p.setString(2, objUser.getEmail());
-        p.setString(3, objUser.getPassword());
-        p.setString(4, objUser.getGender());
-        p.setString(5, objUser.getStatus());
+        // Check if the user with the same email already exists
+        PreparedStatement checkUser = dbConnection.prepareStatement("SELECT * FROM Users WHERE email = ?;");
+        checkUser.setString(1, objUser.getEmail());
+        ResultSet userResultSet = checkUser.executeQuery();
 
-        int rowsInserted = p.executeUpdate();
+        if (userResultSet.next()) {
+            JOptionPane.showMessageDialog(null, "User with the same email already exists.", "Account Registration", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Insert the new user into the database table 'Users'
+        PreparedStatement insertUser = dbConnection.prepareStatement("INSERT INTO Users (username, email, password, gender, status) VALUES (?, ?, ?, ?, ?);");
+        insertUser.setString(1, objUser.getUsername());
+        insertUser.setString(2, objUser.getEmail());
+        insertUser.setString(3, objUser.getPassword());
+        insertUser.setString(4, objUser.getGender());
+        insertUser.setString(5, objUser.getStatus());
+
+        int rowsInserted = insertUser.executeUpdate();
         if (rowsInserted > 0) {
-            JOptionPane.showMessageDialog(null, "Account registered successfully", "Account Registration", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Account registered successfully.", "Account Registration", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Failed to register the account. Please contact support for assistance", "Account Registration Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Failed to register the account. Please contact support for assistance.", "Account Registration Error", JOptionPane.WARNING_MESSAGE);
         }
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Oops! Failed to register the account. Please contact support for assistance", "Account Registration Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Oops! Failed to register the account. Please contact support for assistance.", "Account Registration Error", JOptionPane.ERROR_MESSAGE);
         JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
 }
 
+
    
-   public void addFeedback(FeedbackDTO feedback, Response objResponse, Connection dbConnection) {
+   public void addFeedback(FeedbackDTO feedback, Connection dbConnection) {
     try {
         System.out.println("I am addFeedback method in RecordsAdder");
-    PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Feedback (kindofcomment, aboutlibrary,comments,email,phoneno) VALUES (?, ?, ?, ?, ?);");
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Feedback (kindofcomment, aboutlibrary, comments, email, phoneno) VALUES (?, ?, ?, ?, ?);");
         p.setString(1, feedback.getKind());
         p.setString(2, feedback.getAbout());
         p.setString(3, feedback.getComments());
@@ -234,15 +247,16 @@ public class RecordsAdder {
         p.setString(5, feedback.getPhoneNumber());
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
-            objResponse.getMessagesList().add(new Message("Feedback added successfully.", MessageType.NOTIFICATION));
+            JOptionPane.showMessageDialog(null, "Feedback added successfully", "Feedback Addition", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            objResponse.getMessagesList().add(new Message("Failed to add feedback. Please contact support for assistance.", MessageType.WARNING));
+            JOptionPane.showMessageDialog(null, "Failed to add feedback. Please contact support for assistance", "Feedback Addition Error", JOptionPane.WARNING_MESSAGE);
         }
     } catch (SQLException e) {
-        objResponse.getMessagesList().add(new Message("Oops! Failed to add feedback. Please contact support for assistance.", MessageType.ERROR));
-        objResponse.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
+        JOptionPane.showMessageDialog(null, "Oops! Failed to add feedback. Please contact support for assistance", "Feedback Addition Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
 }
+
 
   public void addPayment(PaymentDTO payment, Response response, Connection dbConnection) {
     try {

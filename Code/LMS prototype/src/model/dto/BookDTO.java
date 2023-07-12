@@ -12,5 +12,6 @@ public class BookDTO {
     public String authorname;
     public String category;
     public String publishername;
+    public String status;
     
 }

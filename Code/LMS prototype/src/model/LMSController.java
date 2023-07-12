@@ -13,6 +13,7 @@ import model.dto.BookDTO;
 import model.dto.FeedbackDTO;
 import model.dto.Message;
 import model.dto.MessageType;
+import model.dto.OrderDTO;
 import model.dto.PaymentDTO;
 import model.dto.Response;
 import model.dto.UserDTO;
@@ -95,13 +96,20 @@ public class LMSController {
     return objResponse;
 }
 
+    //ORDER BOOK FUNCTIONAL________________________________________________________________________________________________________
+    public Response orderBook(OrderDTO order) {
+    System.out.println("I am orderBook method in LMS Controller");
+    Response objResponse = SMSFactory.getResponseInstance();
+    objDAL.orderBook(order, objResponse);
+    return objResponse;
+}
 
     //USE CASE BY SOFIA (BORROW BOOK)
-          
-     public Response borrowBook(String selectedId, String userId) {
+    //BORROW BOOK FUNCTIONAL______________________________________________________________________________________
+     public Response borrowBook(String ISBN, String Title) {
        System.out.println("i am borrow book method in LMs Controller");  
         Response objResponse = SMSFactory.getResponseInstance();
-        objDAL.borrowBook(selectedId, userId, objResponse);
+        objDAL.borrowBook(ISBN,Title, objResponse);
         return objResponse;
     }
      
@@ -119,30 +127,21 @@ public class LMSController {
         return objResponse;
     }
  
-
-
-    public Response orderBook(String bookISBN, String userId) {
-    System.out.println("I am orderBook method in LMS Controller");
-    Response objResponse = SMSFactory.getResponseInstance();
-    objDAL.orderBook(bookISBN, userId, objResponse);
-    return objResponse;
-}
-    
-    public Response reserveBook(String bookISBN, String userId) {
+  //RESERVE BOOK FUNCTIONAL__________________________________________________________________________________________________  
+    public Response reserveBook(String bookISBN, String Title) {
     System.out.println("I am reserveBook method in LMS Controller");
     Response objResponse = SMSFactory.getResponseInstance();
-    objDAL.reserveBook(bookISBN, userId, objResponse);
+    objDAL.reserveBook(bookISBN, Title, objResponse);
     return objResponse;
 }
 
   
 
-    //returnbook
+   //RETURN BOOK FUNCTIONALL______________________________________________________________________________________
     public Response returnBook(String bookId) {
     Response objResponse = SMSFactory.getResponseInstance();
     try {
-        RecordsModifier recordsModifier = new RecordsModifier();
-        recordsModifier.returnBook( bookId, objResponse);
+        objDAL.returnBook(bookId);
     } catch (Exception e) {
         objResponse.messagesList.add(new Message("An error occurred during book return.", MessageType.ERROR));
         objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));

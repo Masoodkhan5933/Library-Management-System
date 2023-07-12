@@ -23,6 +23,7 @@ import model.dto.BookDTO;
 import model.dto.FeedbackDTO;
 import model.dto.Message;
 import model.dto.MessageType;
+import model.dto.OrderDTO;
 import model.dto.PaymentDTO;
 import model.dto.Response;
 import model.dto.UserDTO;
@@ -150,32 +151,12 @@ public Response returnBook(String bookId) {
 
     try {
         Connection dbConnection = objConnection.getConnection();
-
-        // Create a prepared statement to update the book status as returned
-        String query = "UPDATE books SET status = ? WHERE book_id = ?";
-        PreparedStatement statement = dbConnection.prepareStatement(query);
-        statement.setString(1, "Returned");
-        statement.setString(2, bookId);
-
-        // Execute the update
-        int rowsAffected = statement.executeUpdate();
-
-        if (rowsAffected > 0) {
-            // Book returned successfully
-            objResponse.messagesList.add(new Message("Book returned successfully!", MessageType.SUCCESS));
-        } else {
-            // Failed to return book (book not found or already returned)
-            objResponse.messagesList.add(new Message("Failed to return the book. Please check the book ID.", MessageType.ERROR));
-        }
-
-        // Close the statement and database connection
-        statement.close();
-        dbConnection.close();
+        RecordsModifier obj=new RecordsModifier();
+        obj.returnBook(bookId, objResponse, dbConnection);
     } catch (Exception e) {
         // Exception occurred during book return
         objResponse.messagesList.add(new Message("An error occurred during book return.", MessageType.ERROR));
-        objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Trace:\n" + e.getStackTrace(), MessageType.EXCEPTION));
-    }
+        }
 
     return objResponse;
 }
@@ -242,10 +223,10 @@ public Response returnBook(String bookId) {
         return null;
     }
     
-     public void borrowBook(String selectedId, String userId, Response objResponse) {
+     public void borrowBook(String isbn, String title, Response objResponse) {
         try {
             Connection dbConnection = objConnection.getConnection();
-            objModifier.borrowBook(selectedId, userId, objResponse, dbConnection);
+            objModifier.borrowBook(isbn, title, dbConnection);
         } catch (Exception e) {
             objResponse.messagesList.add(new Message("Oops! Failed to borrow the book. Please contact support for assistance.", MessageType.ERROR));
             objResponse.messagesList.add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
@@ -258,7 +239,7 @@ public Response returnBook(String bookId) {
  public void registerAccount(UserDTO objUser, Response objResponse) {
     try {
         Connection dbConnection = objConnection.getConnection();
-        objAdder.registerAccount(objUser, objResponse, dbConnection);
+        objAdder.registerAccount(objUser, dbConnection);
 
         if (objResponse.isSuccessful()) {
             objResponse.messagesList.add(new Message("Account registered successfully.", MessageType.NOTIFICATION));
@@ -274,7 +255,7 @@ public Response returnBook(String bookId) {
  public void saveFeedback(FeedbackDTO feedback, Response response) {
     try {
         Connection dbConnection = objConnection.getConnection();
-        objAdder.addFeedback(feedback, response, dbConnection);
+        objAdder.addFeedback(feedback, dbConnection);
 
         if (response.isSuccessful()) {
             response.getMessagesList().add(new Message("Feedback registered successfully.", MessageType.NOTIFICATION));
@@ -308,10 +289,10 @@ public void savePayment(PaymentDTO payment, Response response) {
     }
     }
 
-    public void orderBook(String bookISBN, String userId, Response objResponse) {
+    public void orderBook(OrderDTO order, Response objResponse) {
            try {
         Connection dbConnection = objConnection.getConnection();
-        objModifier.orderBook(bookISBN, userId, objResponse, dbConnection);
+        objModifier.orderBook(order , dbConnection);
     } catch (Exception e) {
         objResponse.getMessagesList().add(new Message("Oops! Failed to order the book. Please contact support for assistance.", MessageType.ERROR));
         objResponse.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
@@ -319,10 +300,10 @@ public void savePayment(PaymentDTO payment, Response response) {
     }
 
 
-    public void reserveBook(String bookISBN, String userId, Response objResponse) {
+    public void reserveBook(String bookISBN, String Title, Response objResponse) {
            try {
         Connection dbConnection = objConnection.getConnection();
-        objModifier.reserveBook(bookISBN, userId, objResponse, dbConnection);
+        objModifier.reserveBook(bookISBN, Title , dbConnection);
     } catch (Exception e) {
         objResponse.getMessagesList().add(new Message("Oops! Failed to reserve the book. Please contact support for assistance.", MessageType.ERROR));
         objResponse.getMessagesList().add(new Message(e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), MessageType.EXCEPTION));
