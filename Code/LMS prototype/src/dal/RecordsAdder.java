@@ -136,42 +136,33 @@ public class RecordsAdder {
     }
     
 
-    void addBook(BookDTO objBook, Response objResponse, Connection dbConnection) {
-        try {
-        System.out.println("I am addBook method in RecordsAdder");
-        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN, title, authorname, publishername, category ,status) VALUES (?, ?, ?, ?, ?, ?);");
-          p.setString(1, objBook.ISBN);
-            p.setString(2, objBook.name);
-            p.setString(3, objBook.authorname);
-            p.setString(4, objBook.publishername);
-            p.setString(5, objBook.category);
-            p.setString(6, "available");
-            
+void addBook(BookDTO objBook, Response objResponse, Connection dbConnection) {
+    
+    try {
+        PreparedStatement p = dbConnection.prepareStatement("INSERT INTO Book (ISBN, title, authorname, publishername, category, status) VALUES (?, ?, ?, ?, ?, ?);");
+        p.setString(1, objBook.ISBN);
+        p.setString(2, objBook.name);
+        p.setString(3, objBook.authorname);
+        p.setString(4, objBook.publishername);
+        p.setString(5, objBook.category);
+        p.setString(6, "available");
+        
         int rowsInserted = p.executeUpdate();
         if (rowsInserted > 0) {
-            JOptionPane.showMessageDialog(null, "Book added successfully", "Book Addition", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Book Added Successfully", "Book Addition", JOptionPane.INFORMATION_MESSAGE);
         }
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Ooops! Failed to add book. Please contact support for assistance", "Book Addition Error", JOptionPane.ERROR_MESSAGE);
-        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
-    }
-}
-    public void deleteBook(String bookISBN, Response objResponse, Connection dbConnection) {
-        try {
-        PreparedStatement p = dbConnection.prepareStatement("DELETE FROM Book WHERE ISBN = ?;");
-        p.setString(1, bookISBN);
-        int rowsDeleted = p.executeUpdate();
-        if (rowsDeleted > 0) {
-            JOptionPane.showMessageDialog(null, "Book deleted successfully", "Book Deletion", JOptionPane.INFORMATION_MESSAGE);
+        if (e.getSQLState().equals("23000") && e.getErrorCode() == 2627) {
+            JOptionPane.showMessageDialog(null, "BOOK with ISBN " + objBook.ISBN + " already exists.", "Duplicate ISBN", JOptionPane.WARNING_MESSAGE);
+        } else if (e.getErrorCode() == 0) {
+            JOptionPane.showMessageDialog(null, "UNABLE TO CONNECT TO DATABASE", "Database Connection Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Book with ISBN " + bookISBN + " does not exist", "Book Deletion Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ooops! Failed to add book. Please contact support for assistance", "Book Addition Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
         }
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "Ooops! Failed to delete book. Please contact support for assistance", "Book Deletion Error", JOptionPane.ERROR_MESSAGE);
-        JOptionPane.showMessageDialog(null, e.getMessage() + "\nStack Track:\n" + e.getStackTrace(), "Exception Details", JOptionPane.ERROR_MESSAGE);
     }
 }
-    
+
      public void borrowBook(String bookISBN, String userId, Response objResponse, Connection dbConnection) {
         try {
             System.out.println("i am borrow book record modifier");

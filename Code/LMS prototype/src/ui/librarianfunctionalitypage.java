@@ -41,7 +41,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(123, 201, 193));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,9 +70,9 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 60));
 
-        jPanel2.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
-        jButton1.setBackground(new java.awt.Color(123, 201, 193));
+        jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Add book");
@@ -82,7 +82,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(123, 201, 193));
+        jButton2.setBackground(new java.awt.Color(0, 51, 51));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Delete book");
@@ -92,7 +92,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(123, 201, 193));
+        jButton3.setBackground(new java.awt.Color(0, 51, 51));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Order book");
@@ -102,7 +102,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(123, 201, 193));
+        jButton4.setBackground(new java.awt.Color(0, 51, 51));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Generate fine");
@@ -112,7 +112,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(123, 201, 193));
+        jButton7.setBackground(new java.awt.Color(0, 51, 51));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Logout");
@@ -122,7 +122,7 @@ public class librarianfunctionalitypage extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(123, 201, 193));
+        jButton8.setBackground(new java.awt.Color(0, 51, 51));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Search book");

@@ -127,7 +127,7 @@ public class loginpage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
     String username=jTextField1.getText();
-         String password=jPasswordField1.getText();
+    String password=jPasswordField1.getText();
          
         LMSController obj=new LMSController();
         obj.login( username, password);

@@ -28,6 +28,7 @@ import model.dto.PaymentDTO;
 import model.dto.Response;
 import model.dto.UserDTO;
 import ui.librarianfunctionalitypage;
+import ui.managerfunctionalitypage;
 import ui.userfunctionalitypage;
 
 
@@ -89,13 +90,14 @@ public void login(String username, String password) {
                 if (username.equals("admin")) {
                     new librarianfunctionalitypage();
                 }
+                else if(username.equals("manager")){
+                    new managerfunctionalitypage();
+                }
                 else{
                     new userfunctionalitypage();
                 }
                 
-                // Display success dialog box
-                JOptionPane.showMessageDialog(null, "Login successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
-            }
+                }
         } else {
             // Invalid credentials, display error dialog box
             JOptionPane.showMessageDialog(null, "Invalid username or password.", "Login Error", JOptionPane.ERROR_MESSAGE);
