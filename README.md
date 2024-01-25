@@ -1,8 +1,6 @@
 # LIBRARY-MANAGEMENT-SYSTEM
-Group Members:
-1) MUHAMMAD MASOOD KHAN  (FA21-BSE-028)
-2) SOFIA AAMIR           (FA21-BSE-036)
-3) MAHNOOR QAZI          (FA21-BSE-020)
+DEVELOPED BY:
+MUHAMMAD MASOOD KHAN  (FA21-BSE-028)
 
 This repository have the source code and the documents of library management system it contains the prototypes,
 out application include:
